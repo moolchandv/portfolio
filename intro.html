@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Moolchand Vishwakarma</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-badge">MV</div>
+    <div class="brand-text">
+      <div class="brand-name">Moolchand Vishwakarma</div>
+      <div class="brand-tag">Student • Computer Operator • Web Learner</div>
+    </div>
+  </div>
+
+  <button class="nav-toggle" aria-label="Open Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="intro.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="social.html" class="nav-link">Social Media</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <button class="mode-btn" id="modeBtn" type="button" aria-label="Toggle Dark Mode">🌙</button>
+  </nav>
+</header>
+
+
+  <main class="page">
+    <section class="section">
+      <div class="section-head">
+        <h1>About Me</h1>
+        <p>
+          Hi, I am <b>Moolchand Vishwakarma</b>. I’m an ITI (NCVT COPA) student from Madhya Pradesh.
+          I enjoy computer work and learning web development.
+        </p>
+      </div>
+
+      <div class="grid cards-2">
+        <article class="card">
+          <h3>Education</h3>
+          <ul class="list">
+            <li>ITI – NCVT COPA (Computer Operator & Programming Assistant)</li>
+            <li>Learning: Basic Web Development (HTML/CSS)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Strength</h3>
+          <ul class="list">
+            <li>Fast learner</li>
+            <li>Customer support mindset</li>
+            <li>Good typing speed (Hindi & English)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-head">
+        <h2>My Skills</h2>
+      </div>
+
+      <div class="grid cards-3">
+        <article class="card">
+          <h3>Computer</h3>
+          <ul class="list">
+            <li>MS Word / Excel / PowerPoint</li>
+            <li>Internet, Email & Online work</li>
+            <li>PDF, Print & Scanning support</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Typing</h3>
+          <ul class="list">
+            <li>Hindi & English typing</li>
+            <li>Data entry and document formatting</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Design</h3>
+          <ul class="list">
+            <li>Basic Poster / Banner designing</li>
+            <li>Simple logo & ID card designs</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="note">
+        Want to know more? <a href="contact.html">Contact me</a>.
+      </div>
+    </section>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Moolchand Vishwakarma • All Rights Reserved/div>
+</footer>
+
+  
+<script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Dark mode
+  const modeBtn = document.getElementById('modeBtn');
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  function refreshIcon(){
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (modeBtn) modeBtn.textContent = isDark ? '☀️' : '🌙';
+  }
+  refreshIcon();
+  if (modeBtn){
+    modeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      refreshIcon();
+    });
+  }
+
+  // Footer year
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
